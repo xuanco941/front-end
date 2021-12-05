@@ -1,0 +1,43 @@
+.title{
+    text-align: center;
+    margin-top: 60px;
+}
+.box{
+    width: 70vw;
+    margin: auto;
+    display: flex ;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+}
+@media (max-width:900px){
+    .box{
+        width: 100vw;
+    }
+}
+.item{
+    width: 45%;
+    word-wrap: break-word;
+    word-break: keep-all;
+    margin-bottom: 20px;
+}
+.item p{
+    margin-bottom: 0px;
+}
+.item img{
+    width: 100%;
+}
+.detail{
+    color: #f15e2c;
+    text-decoration: none;
+}
+.more{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #303030 ;
+    width: 130px;
+    margin: auto;
+    padding:15px;
+    color: white;
+    border-radius: 2px;
+}
