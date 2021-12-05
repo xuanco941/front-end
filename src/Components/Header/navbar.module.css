@@ -1,0 +1,94 @@
+.nav{
+    width: 100vw;
+    height: 100px;
+    margin-top: 12px;
+    display: flex;
+}
+.col{
+    height: 100%;
+}
+.col1{
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+}
+.col2{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.col2_link{
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 700;
+    color: black;
+    width: 320px;
+    height: 100%;
+    margin-left: 30px;
+    position: relative;
+}
+.col2_img{
+    padding-left: 35px;
+    padding-bottom: 30px;
+}
+.col2_link::before{
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 28px;
+    background-color: rgba(0, 0, 0, .25);
+    right: -13px;
+}
+.col2_link:hover{
+    color: #f15e2c;
+}
+.caret_hover{
+    background-image: url('https://ananas.vn/wp-content/themes/ananas/fe-assets/images/icon_up_orange.png');
+}
+
+.caret{
+    background-image: url('https://ananas.vn/wp-content/themes/ananas/fe-assets/images/icon_down_black.png');
+    width: 12px;
+    height: 8px;
+    border: none;
+    position: relative;
+    background-color: #fff;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.col3{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_search {
+    width: 250px;
+    height: 35px;
+    background-color: #fff;
+    display: flex;
+    border: 2px solid rgba(0, 0, 0, .2);
+    border-radius: 2px;
+}
+.box_search input{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.box_search input:focus-visible{
+    outline: none;
+}
+@media(max-width:900px){
+    .col2{
+        display: none;
+    }
+    .col3{
+        display: none;
+    }
+}

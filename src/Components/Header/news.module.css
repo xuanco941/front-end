@@ -1,0 +1,65 @@
+
+.space_news{
+    background-color: #f1f1f1;
+    width: 100vw;
+    height: 50px;
+    color: #555555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    }
+.slick_news{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+}
+.slick_next{
+    background-image: url('https://ananas.vn/wp-content/themes/ananas/fe-assets/images/icon_right.png');
+
+}
+.slick_prev{
+    background-image: url('https://ananas.vn/wp-content/themes/ananas/fe-assets/images/icon_left.png');
+
+}
+
+.button_slick{
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    align-items: flex-start;
+    border: none;
+    z-index: 2;
+    width: 60px;
+}
+.button_slick:hover{
+    cursor: pointer;
+}
+.news{
+    position: relative;
+
+    text-align: center;
+    z-index: 1;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+}
+.slick_left{
+    animation-name: slick;
+    animation-duration: 0.8s;
+}
+@keyframes slick {
+    0% {
+        left: 0px;
+        opacity: 1;
+    }
+    100% {
+        left: -200px;
+        opacity: 0;
+    }
+}
+@media (max-width:900px){
+    .space_news{
+        font-size: 10px;
+    }
+}

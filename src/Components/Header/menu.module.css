@@ -1,0 +1,25 @@
+.menu{
+    background-color: #303030;
+    text-align: right;
+    padding-right: 60px;
+}
+.menu_item{
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    margin-left: 25px;
+    position: relative;
+}
+.menu_item:hover{
+    color: #f15e2c;
+}.menu_text{
+    display: initial;
+    margin-left: 10px;
+    position: relative;
+    top: -6px;
+}
+@media (max-width: 930px){
+    .menu{
+        display: none;
+    }
+}

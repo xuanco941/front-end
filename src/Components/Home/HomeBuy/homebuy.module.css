@@ -1,0 +1,27 @@
+.title{
+    text-align: center;
+    margin-top: 60px;
+}
+.box{
+    width: 70vw;
+    margin: auto;
+    display: flex ;
+    justify-content:space-between;
+}
+.box_item{
+    width: 30%;
+}
+@media(max-width:900px){
+    .box{
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .box_item{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 5px
+    };
+}

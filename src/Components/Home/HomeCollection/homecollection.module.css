@@ -1,0 +1,39 @@
+.row{
+    width: 100vw;
+    justify-content:space-evenly;
+    display: flex;
+    padding-top: 60px;
+
+}
+.box{
+    width: 30vw;
+    word-wrap: break-word;
+    word-break:keep-all;
+}
+.item{
+    width: 100%;
+    max-width: 100%;
+    display: inline;
+}
+@media (max-width:900px){
+    .box{
+        width: 45vw;
+    }
+    .row{
+        padding-top: 20px;
+    }
+}
+.box a{
+    text-decoration: none;
+}
+.box h1{
+    display: inline;
+    padding: 0px;
+    color: black;
+}
+.box h1:hover{
+    color: #f15e2c;
+}
+.box p{
+    margin-top: 10px;
+}
