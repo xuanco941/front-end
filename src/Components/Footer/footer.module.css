@@ -1,5 +1,5 @@
 .footer{
-    width: 100%;
+    width: 100vw;
     background-color:#4c4c4c;
     margin: auto;
 }
@@ -9,21 +9,33 @@
 
 }
 .top_item{
-    width: 25%;
+    width: 20%;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    padding-top: 50px;
+    flex-direction: column;
+}
+.item_link{
+    text-decoration: none;
+    color: #cccccc    ;
+    font-size: 14px;  
+    margin-top: 7px;
+}
+.title + .item_link{
+    margin-top: 25px;
+}
+.item_link:hover{
+    color: #ff5f17    ;
 }
 .top_item img{
     width: 100%;
+    padding-top: 50px;
 }
 .btn_search{
     background-color: #f15e2c;
     border: none;
     color: white;
     padding: 10px;
-    font-size: 100%;
+    font-size: 20px;
     width: 70%;
     margin: 0 auto;
     border-radius: 5px;
@@ -33,8 +45,107 @@
 }
 .title{
     color: white;
-    font-size: 1.3em;
+    font-size: 23px;
     text-decoration: none;
     font-weight: 750;
-    width: 100%;
+    padding-top: 50px;
+
+}
+.title:hover{
+    color: #ff5f17;
+}
+.mid{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.box{
+    width: 20%;
+}
+.box_img{
+    display: flex;
+    align-items: center;
+}
+.mid_img{
+    width: 10vw;
+}
+.social{
+    width: 20%;
+}
+.social_title{
+    padding-top: 0;
+}
+.social_title:hover{
+    color: white;
+}
+.social_body{
+    margin-top: 25px;
+}
+.social_body a img{
+    margin-right: 10px;
+    width: 16%;
+}
+.bottom{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+@media(max-width:900px){
+    .btn_search{
+        font-size: 10px;
+        max-height: 16px;
+    }
+    .item_link{
+        font-size: 12px;
+    }
+    .title{
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 20px;
+    }
+    .top_item img{
+        padding-top: 20px;
+    }
+    .title + .item_link{
+        margin-top: 15px;
+    }
+    .social_body{
+        margin-top: 15px;
+    }
+    .social_title{
+        padding-top: 0;
+    }
+    .bottom{
+        font-size: 13px;
+    }
+}
+@media(max-width:600px){
+    .btn_search{
+        font-size: 7px;
+        max-height: 16px;
+        font-weight: 400;
+        padding: 5px;
+    }
+    .item_link{
+        font-size: 7px;
+    }
+    .title{
+        font-size: 9px;
+        font-weight: 500;
+    }
+    .title + .item_link{
+        margin-top: 10px;
+    }
+    .social_body{
+        margin-top: 10px;
+    }
+    .social_title{
+        padding-top: 0;
+    }
+    .bottom{
+        font-size: 7px;
+    }
 }

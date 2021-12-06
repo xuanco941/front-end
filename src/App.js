@@ -4,6 +4,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Home from './Pages/Home'
 import Order from './Pages/Order'
+import './App.css'
 
 
 const App = () => {

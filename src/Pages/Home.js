@@ -3,6 +3,7 @@ import HomeCollection from "../Components/Home/HomeCollection"
 import HomeBuy from "../Components/Home/HomeBuy"
 import News from "../Components/Home/News"
 import ImageHomeBottom from "../Components/Home/ImageHomeBottom"
+import './Home.css';
 
 const Home = () => {
     return(

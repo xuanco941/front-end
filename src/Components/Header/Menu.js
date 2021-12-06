@@ -27,7 +27,7 @@ const Menu = () => {
                     <p className={clsx(style.menu_text)}>Yêu thích</p>
                 </Link>
 
-                <Link className={clsx(style.menu_item)} to='/comming-soon'>
+                <Link className={clsx(style.menu_item)} to='/signin'>
                     <img src={icon_dang_nhap} alt='img' />
                     <p className={clsx(style.menu_text)}>Đăng nhập</p>
                 </Link>
