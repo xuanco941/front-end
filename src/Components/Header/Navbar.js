@@ -14,28 +14,28 @@ const Navbar = () => {
                 <div className={clsx(style.col, style.col2)}>
 
                     <div className={clsx(style.col2_item)}>
-                        <Link className={clsx(style.col2_link)} to='/product-list'>
+                        <Link className={clsx(style.col2_link)} to='/product'>
                             SẢN PHẨM
                             <span className={clsx(style.caret)}></span>
                         </Link>
                     </div>
 
                     <div className={clsx(style.col2_item)}>
-                        <Link className={clsx(style.col2_link)} to='/product-list/?gender=man'>
+                        <Link className={clsx(style.col2_link)} to='/product/?gender=man'>
                             NAM
                             <span className={clsx(style.caret)}></span>
                         </Link>
                     </div>
 
                     <div className={clsx(style.col2_item)}>
-                        <Link className={clsx(style.col2_link)} to='/product-list/?gender=woman'>
+                        <Link className={clsx(style.col2_link)} to='/product/?gender=woman'>
                             NỮ
                             <span className={clsx(style.caret)}></span>
                         </Link>
                     </div>
 
                     <div className={clsx(style.col2_item)}>
-                        <Link className={clsx(style.col2_link)} to='/product-list/sale'>
+                        <Link className={clsx(style.col2_link)} to='/product/sale'>
                             SALE OFF
                         </Link>
                     </div>

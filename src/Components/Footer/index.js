@@ -18,7 +18,7 @@ const Footer = () => {
                         <Link className={style.btn_search} to='/stores'>TÌM CỬA HÀNG</Link>
                     </div>
                     <div className={clsx(style.top_item, style.top_item_link)}>
-                        <Link className={style.title} to='/product-list'>SẢN PHẨM</Link>
+                        <Link className={style.title} to='/product'>SẢN PHẨM</Link>
                         <Link className={style.item_link} to='/'>Giày Nam</Link>
                         <Link className={style.item_link} to='/'>Giày Nữ</Link>
                         <Link className={style.item_link} to='/'>Thời trang & Phụ kiện</Link>
@@ -28,7 +28,7 @@ const Footer = () => {
 
 
                     <div className={clsx(style.top_item, style.top_item_link)}>
-                        <Link className={style.title} to='/product-list'>VỀ CÔNG TY</Link>
+                        <Link className={style.title} to='/product'>VỀ CÔNG TY</Link>
                         <Link className={style.item_link} to='/'>Dứa tuyển dụng</Link>
                         <Link className={style.item_link} to='/'>Liên hệ nhượng quyền</Link>
                         <Link className={style.item_link} to='/'>Về Ananas</Link>
@@ -36,7 +36,7 @@ const Footer = () => {
 
 
                     <div className={clsx(style.top_item, style.top_item_link)}>
-                        <Link className={style.title} to='/product-list'>HỖ TRỢ</Link>
+                        <Link className={style.title} to='/product'>HỖ TRỢ</Link>
                         <Link className={style.item_link} to='/'>FAQs</Link>
                         <Link className={style.item_link} to='/'>Bảo mật thông tin</Link>
                         <Link className={style.item_link} to='/'>Chính sách chung</Link>
@@ -47,7 +47,7 @@ const Footer = () => {
 
 
                     <div className={clsx(style.top_item, style.top_item_link)}>
-                        <Link className={style.title} to='/product-list'>LIÊN HỆ</Link>
+                        <Link className={style.title} to='/product'>LIÊN HỆ</Link>
                         <Link className={style.item_link} to='/'>Email góp ý</Link>
                         <Link className={style.item_link} to='/'>Hotline</Link>
                         <Link className={style.item_link} to='/'>0388530006</Link>

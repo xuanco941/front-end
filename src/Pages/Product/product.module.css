@@ -1,0 +1,15 @@
+
+.container{
+    width: 100vw;
+}
+.box{
+    width: 70%;
+}
+.box1{
+    display: flex;
+    justify-content: center;
+}
+
+.img_title{
+    width: 100%;
+}
