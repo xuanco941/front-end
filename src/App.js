@@ -6,6 +6,7 @@ import Home from './Pages/Home'
 import Order from './Pages/Order'
 import SignIn from './Pages/SignIn'
 import Product from './Pages/Product'
+import SignInAdmin from './Pages/SignInAdmin'
 import './App.css'
 
 
@@ -21,6 +22,7 @@ const App = () => {
                 <Route path='/search-order' element={<Order/>} />
                 <Route path='/signin' element={<SignIn/>}/>
                 <Route path='/product-list' element={<Product/>}/>
+                <Route path='/admin' element={<SignInAdmin/>}/>
             </Routes>
 
             <Footer/>
