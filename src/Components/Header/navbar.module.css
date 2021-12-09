@@ -89,6 +89,7 @@
     display: none;
 }
 
+
 @media (max-width:1500px) {
     .col3 {
         width: 20%;
@@ -127,6 +128,9 @@
 
 
 @media(max-width:1100px){
+    .nav{
+        margin: 0;
+    }
     .col2{
         display: none;
     }
@@ -141,11 +145,83 @@
     }
     .col2_mb{
         width: 45%;
-        background-color: thistle;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .col3_mb{
-        width: 20%;
+        width: 25%;
         background-color:tomato;
-
     }
+    .menu_mb{
+        width: 100%;
+        height: 100%;
+        background-color: #4c4c4c;    
+        display: flex;
+        justify-content:center;
+        align-items:center;
+        align-content: center;
+        flex-wrap: wrap;   
+        position: relative;
+        z-index: 99;
+        color: white;
+    }
+
+    .menu_mb > span{
+        width: 55%;
+        background-color: white;
+        height: 3px;
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .item_col2_mb{
+        width: 33%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .item_col2_mb>img{
+        max-width: 60%;
+    }
+    .col3_mb{
+        position: relative;
+    }
+    .box_menu_mb{
+        width: 100vw;
+        position:absolute;
+        background-color: #4c4c4c;
+        z-index: 99;
+        left: calc(-100vw + 100%);
+    }
+    .item_box_menu_mb{
+        text-decoration: none;
+        color: white;
+        font-size: 23px;
+        font-weight: 800;
+        width: 100%;
+        position: relative;
+        display: block;
+        z-index: -5;
+        text-align: center;
+        padding: 10px;
+        padding-bottom: 20px;
+    }
+    .item_box_menu_mb::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: rgba(255, 255, 255, .1);
+        bottom: 0;
+        left: 0;
+    }
+
+    .menu_mb_close{
+        font-size: 400%;
+    }
+}
+.hide{
+    display: none;
 }

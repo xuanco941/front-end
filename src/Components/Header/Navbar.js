@@ -1,8 +1,18 @@
 import clsx from 'clsx'
 import style from './navbar.module.css'
 import { Link } from 'react-router-dom'
+import mb_cart from './img/mb_cart.png'
+import mb_location from './img/mb_location.png'
+import mb_search from './img/mb_search.png'
+import { useState } from 'react'
 
 const Navbar = () => {
+
+    const [showMenu,setShowMenu] = useState(false)
+
+
+    console.log('render');
+
     return (
         <>
             <nav className={clsx(style.nav)}>
@@ -55,8 +65,36 @@ const Navbar = () => {
                 </div>
 
 
-                <div className={style.col2_mb}>2</div>
-                <div className={style.col3_mb}>3</div>
+                <div className={style.col2_mb}>
+                    <Link className={style.item_col2_mb} to='/'>
+                        <img alt='menu' src={mb_search}/>
+                    </Link>
+                    <Link className={style.item_col2_mb} to='/'>
+                        <img alt='menu' src={mb_location}/>
+                    </Link>
+                    <Link className={style.item_col2_mb} to='/'>
+                        <img alt='menu' src={mb_cart}/>
+                    </Link>
+                </div>
+                <div className={style.col3_mb}>
+                    <div onClick={()=>setShowMenu(true)} className={clsx(style.menu_mb,style.menu_mb_show, {[style.hide]: showMenu})}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div onClick={()=>setShowMenu(false)} className={clsx(style.menu_mb_close,style.menu_mb,{[style.hide]: !showMenu})}>X</div>
+
+
+                    <div className={clsx({[style.box_menu_mb] : showMenu})}>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Sản Phẩm</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Nam</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Nữ</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Sale Off</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>DiscoverYOU</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Đăng nhập</Link>
+
+                    </div>
+                </div>
 
             </nav>
         </>
