@@ -5,8 +5,44 @@ import img from './img_title.jpg'
 import style from './product.module.css'
 import img_test from './1.jpg'
 import img_test2 from './2.jpg'
+import { useEffect } from 'react'
+
+
 
 const Product = () => {
+
+    useEffect(() => {
+        const box_img = Array.from(document.querySelectorAll('.boximg'));
+
+        box_img.forEach((elm) => {
+            elm.addEventListener('mousemove', () => {
+                elm.children[0].style.display = 'none';
+                elm.children[1].style.display = 'block';
+            })
+
+            elm.addEventListener('mouseleave', () => {
+                elm.children[0].style.display = 'block';
+                elm.children[1].style.display = 'none';
+            })
+        })
+
+
+        //remove event , fix ro ri memory
+        return () => {
+            box_img.forEach((elm) => {
+                elm.removeEventListener('mousemove', () => {
+                    elm.children[0].style.display = 'none';
+                    elm.children[1].style.display = 'block';
+                })
+    
+                elm.removeEventListener('mouseleave', () => {
+                    elm.children[0].style.display = 'block';
+                    elm.children[1].style.display = 'none';
+                })
+            })
+        }
+
+    }, [])
 
 
 
@@ -20,9 +56,9 @@ const Product = () => {
 
 
                     <div className={style.item}>
-                        <Link className={style.box_img} to='/product/1'>
-                            <img className={clsx(style.img,style.img1)} src={img_test} alt='img product' />
-                            <img className={clsx(style.img,style.img2)} src={img_test2} alt='img product' />
+                        <Link className={clsx(style.box_img, 'boximg')} to='/product/1'>
+                            <img className={clsx(style.img)} src={img_test} alt='img product' />
+                            <img className={clsx(style.img, style.hide)} src={img_test2} alt='img product' />
                         </Link>
                         <span className={style.status}>New Arrival</span>
                         <Link to='/product/1'>
@@ -32,10 +68,11 @@ const Product = () => {
                         <p className={style.price}>1.190.000 VND</p>
                     </div>
 
+
                     <div className={style.item}>
-                        <Link className={style.box_img} to='/product/1'>
-                            <img className={clsx(style.img,style.img1)} src={img_test} alt='img product' />
-                            <img className={clsx(style.img,style.img2)} src={img_test2} alt='img product' />
+                        <Link className={clsx(style.box_img, 'boximg')} to='/product/1'>
+                            <img className={clsx(style.img)} src={img_test} alt='img product' />
+                            <img className={clsx(style.img, style.hide)} src={img_test2} alt='img product' />
                         </Link>
                         <span className={style.status}>New Arrival</span>
                         <Link to='/product/1'>
@@ -44,7 +81,13 @@ const Product = () => {
                         <p>Offwhite/Gum</p>
                         <p className={style.price}>1.190.000 VND</p>
                     </div>
-                    
+
+
+
+
+
+
+
 
 
 

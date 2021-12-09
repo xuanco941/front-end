@@ -75,12 +75,7 @@
 .item>a:hover{
     color: #f15e2c    ;
 }
-.img2{
-    display: none;
-}
-.img1:hover + .img2{
-    display: block;
-}
+
 .hide{
     display: none;
 }
