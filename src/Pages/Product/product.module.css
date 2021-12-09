@@ -75,6 +75,34 @@
 .item>a:hover{
     color: #f15e2c    ;
 }
+.box_img{
+    position: relative;
+}
+@keyframes opacity_buynow {
+    0%{
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+.box_img:hover .buynow{
+    animation: opacity_buynow 2s;
+    display: block;
+}
+.buynow{
+    display: none;
+    position: absolute;
+    background-color: #f15e2c;
+    font-size: 17px;
+    color: white;
+    padding: 10px;
+    width: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: -15px;
+}
 
 .hide{
     display: none;

@@ -59,6 +59,7 @@ const Product = () => {
                         <Link className={clsx(style.box_img, 'boximg')} to='/product/1'>
                             <img className={clsx(style.img)} src={img_test} alt='img product' />
                             <img className={clsx(style.img, style.hide)} src={img_test2} alt='img product' />
+                            <span className={style.buynow}>Mua Ngay</span>
                         </Link>
                         <span className={style.status}>New Arrival</span>
                         <Link to='/product/1'>
@@ -67,28 +68,6 @@ const Product = () => {
                         <p>Offwhite/Gum</p>
                         <p className={style.price}>1.190.000 VND</p>
                     </div>
-
-
-                    <div className={style.item}>
-                        <Link className={clsx(style.box_img, 'boximg')} to='/product/1'>
-                            <img className={clsx(style.img)} src={img_test} alt='img product' />
-                            <img className={clsx(style.img, style.hide)} src={img_test2} alt='img product' />
-                        </Link>
-                        <span className={style.status}>New Arrival</span>
-                        <Link to='/product/1'>
-                            <h4>Basas Bumper Gum EXT NE - High Top weeeeeeeeeeeeeeee</h4>
-                        </Link>
-                        <p>Offwhite/Gum</p>
-                        <p className={style.price}>1.190.000 VND</p>
-                    </div>
-
-
-
-
-
-
-
-
 
 
                 </div>
