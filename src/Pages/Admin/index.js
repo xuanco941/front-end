@@ -1,7 +1,7 @@
 import style from './SignIn.module.css'
 import clsx from 'clsx'
 
-function SignInAdmin() {
+function Admin() {
 
     
 
@@ -11,8 +11,8 @@ function SignInAdmin() {
             <div className={style.container}>
                 <div className={clsx(style.form, style.formSignIn)}>
                     <form className={style.form_log} method='POST'>
-                        <input className={style.input} type='text' name='username' placeholder='Tài khoản' />
-                        <input className={style.input} type='text' name='password' placeholder='Mật khẩu' />
+                        <input className={style.input} type='text' name='username' autoComplete='off' placeholder='Tài khoản quản trị viên' />
+                        <input className={style.input} type='text' name='password' autoComplete='off' placeholder='Mật khẩu' />
                         <button className={style.button} type='submit'>Đăng nhập</button>
                     </form>
 
@@ -25,4 +25,4 @@ function SignInAdmin() {
     )
 }
 
-export default SignInAdmin
+export default Admin

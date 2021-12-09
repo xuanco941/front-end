@@ -18,8 +18,8 @@ function SignIn() {
             <div className={style.container}>
                 <div className={clsx(style.form, style.formSignIn, { [style.hide]: changeFormSignIn })}>
                     <form className={style.form_log} method='POST'>
-                        <input className={style.input} type='text' name='username' placeholder='Tài khoản' />
-                        <input className={style.input} type='text' name='password' placeholder='Mật khẩu' />
+                        <input className={style.input} type='text' name='username' autoComplete='off' placeholder='Tài khoản' />
+                        <input className={style.input} type='text' name='password' autoComplete='off' placeholder='Mật khẩu' />
                         <button className={style.button} type='submit'>Đăng nhập</button>
                     </form>
 
@@ -30,9 +30,9 @@ function SignIn() {
                 <div className={clsx(style.form, style.formSignUp, { [style.hide]: changeFormSignUp })}>
 
                     <form className={style.form_log} method='POST'>
-                        <input className={style.input} type='text' name='username' placeholder='Tài khoản' />
-                        <input className={style.input} type='text' name='password1' placeholder='Mật khẩu' />
-                        <input className={style.input} type='text' name='password2' placeholder='Nhập lại mật khẩu' />
+                        <input className={style.input} type='text' name='username' autoComplete='off' placeholder='Tài khoản' />
+                        <input className={style.input} type='text' name='password1' autoComplete='off' placeholder='Mật khẩu' />
+                        <input className={style.input} type='text' name='password2' autoComplete='off' placeholder='Nhập lại mật khẩu' />
 
                         <button className={style.button} type='submit'>Đăng ký</button>
                     </form>

@@ -54,6 +54,10 @@ const Navbar = () => {
                     </div>
                 </div>
 
+
+                <div className={style.col2_mb}>2</div>
+                <div className={style.col3_mb}>3</div>
+
             </nav>
         </>
     )
