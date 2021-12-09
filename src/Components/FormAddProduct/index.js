@@ -1,11 +1,24 @@
+
 const FormAddProduct = () => {
+    const style = {
+        padding: '50px',
+        width: '700px',
+        backgroundColor: 'pink',
+        display: 'flex',
+        flexDirection: 'column'
+    }
+
     return (
         <>
-            <div>
+            <div style={style}>
                 <input name='nameProduct' placeholder="nameProduct" type='text' />
-                <input name='category' placeholder="category" type='range' />
+                <input name='category' placeholder="category" type='radio' />
+                
                 <input name='price' placeholder="price" type='number' />
-                <div>
+
+                <div style={{
+                    backgroundColor: 'tomato'
+                }}>
                 <input name='size' placeholder="size" type='number' />
                 <input name='amount' placeholder="amount" type='number' />
                 </div>
@@ -16,11 +29,11 @@ const FormAddProduct = () => {
                 <input name='description' placeholder="description" type='text' />
                 <input name='status' placeholder="status" type='checkbox' />
                 
-                <input name='categoryColor' placeholder="categoryColor" type='range' />
+                <input name='categoryColor' placeholder="categoryColor" type='radio' />
 
                 
 
-               
+               <button> Send</button>
 
             </div>
         </>

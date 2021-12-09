@@ -10,9 +10,6 @@ const Navbar = () => {
 
     const [showMenu,setShowMenu] = useState(false)
 
-
-    console.log('render');
-
     return (
         <>
             <nav className={clsx(style.nav)}>
