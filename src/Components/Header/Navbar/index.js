@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 import mb_cart from '../img/mb_cart.png'
 import mb_location from '../img/mb_location.png'
 import mb_search from '../img/mb_search.png'
+import icon_tim_kiem from '../img/icon_tim_kiem.svg'
+import Logo_Ananas_Header from '../img/Logo_Ananas_Header.svg'
+import discoveru from '../img/DiscoverYOU.svg'
 import { useState } from 'react'
 
 const Navbar = () => {
@@ -15,7 +18,7 @@ const Navbar = () => {
             <nav className={clsx(style.nav)}>
                 <div className={clsx(style.col, style.col1)}>
                     <Link to='/'>
-                        <img src='https://ananas.vn/wp-content/themes/ananas/fe-assets/images/svg/Logo_Ananas_Header.svg' alt='logo ananas' />
+                        <img src={Logo_Ananas_Header} alt='logo ananas' />
                     </Link>
                 </div>
                 <div className={clsx(style.col, style.col2)}>
@@ -49,14 +52,14 @@ const Navbar = () => {
 
                     <div className={clsx(style.col2_item)}>
                         <Link className={clsx(style.col2_img)} to='/discoveryou'>
-                            <img src='https://ananas.vn/wp-content/themes/ananas/fe-assets/images/svg/DiscoverYOU.svg' alt='img discover u'/>
+                            <img src={discoveru} alt='img discover u'/>
                         </Link>
                     </div>
 
                 </div>
                 <div className={clsx(style.col, style.col3)}>
                     <div className={clsx(style.box_search)}>
-                        <img src='https://ananas.vn/wp-content/themes/ananas/fe-assets/images/svg/icon_tim_kiem.svg'alt="img search" />
+                        <img src={icon_tim_kiem}alt="img search" />
                         <input placeholder='Tìm kiếm' />
                     </div>
                 </div>

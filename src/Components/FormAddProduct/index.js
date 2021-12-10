@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './formaddproduct.module.css'
 import icon_post_img from './img/icon_post_camera.jpg'
 
@@ -20,6 +20,16 @@ const FormAddProduct = () => {
         setImage(prev => [...prev,...files]);
     }
 
+    useEffect(() => {
+        // clean up image
+        return () => {
+            image.forEach(e => {
+                URL.revokeObjectURL(e.preview);
+            })
+        }
+    }, [image])
+
+    
 
     console.log(image,nameProduct,price,sale,description);
     
