@@ -1,0 +1,71 @@
+.container{
+    width: 100vw;
+    margin-top: 10px;
+}
+
+.formAddProduct{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: brown;
+
+}
+.box_img{
+    width:40%;
+}
+.input_img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.input_img>input[type='file']{
+    display: none;
+}
+.label_input_img{
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button_select_img{
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+.button_select_img:hover{
+    color: #f15e2c    ;
+}
+.label_input_img:hover{
+    cursor: pointer;
+}
+.label_input_img>img{
+    max-width: 30%;
+}
+.preview_img{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.preview_img img{
+    max-width: 40%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.box_input{
+    width: 60%;
+}
+
+@media (max-width: 1200px){
+    .formAddProduct{
+        width: 100%;
+    }
+    .label_input_img{
+        max-width: 100%;
+    }
+    .preview_img img{
+        max-width: 90%;
+    }
+}
