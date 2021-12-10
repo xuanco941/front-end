@@ -1,12 +1,12 @@
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
 import style from './footer.module.css'
-import store from './Store.svg'
-import icon_fb from './icon_facebook.svg'
-import icon_isg from './icon_instagram.svg'
-import icon_ytb from './icon_youtube.svg'
-import logo from './Logo_Ananas_Footer.svg'
-import bocongthuong from './icon_bocongthuong.png'
+import store from './img/Store.svg'
+import icon_fb from './img/icon_facebook.svg'
+import icon_isg from './img/icon_instagram.svg'
+import icon_ytb from './img/icon_youtube.svg'
+import logo from './img/Logo_Ananas_Footer.svg'
+import bocongthuong from './img/icon_bocongthuong.png'
 
 const Footer = () => {
     return (

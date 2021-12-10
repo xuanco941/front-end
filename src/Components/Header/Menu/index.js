@@ -2,9 +2,9 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import style from './menu.module.css';
 
-import icon_tra_cuu_don_hang from './img/icon_tra_cuu_don_hang.svg';
-import icon_dang_nhap from './img/icon_dang_nhap.svg';
-import icon_gio_hang from './img/icon_gio_hang.svg';
+import icon_tra_cuu_don_hang from '../img/icon_tra_cuu_don_hang.svg';
+import icon_dang_nhap from '../img/icon_dang_nhap.svg';
+import icon_gio_hang from '../img/icon_gio_hang.svg';
 
 const Menu = () => {
     return (

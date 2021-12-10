@@ -1,16 +1,11 @@
 
+import style from './formaddproduct.module.css'
+
 const FormAddProduct = () => {
-    const style = {
-        padding: '50px',
-        width: '700px',
-        backgroundColor: 'pink',
-        display: 'flex',
-        flexDirection: 'column'
-    }
 
     return (
         <>
-            <div style={style}>
+            <div className={style.container} >
                 <input name='nameProduct' placeholder="nameProduct" type='text' />
                 <input name='category' placeholder="category" type='radio' />
                 

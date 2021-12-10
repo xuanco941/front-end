@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import style from './navbar.module.css'
 import { Link } from 'react-router-dom'
-import mb_cart from './img/mb_cart.png'
-import mb_location from './img/mb_location.png'
-import mb_search from './img/mb_search.png'
+import mb_cart from '../img/mb_cart.png'
+import mb_location from '../img/mb_location.png'
+import mb_search from '../img/mb_search.png'
 import { useState } from 'react'
 
 const Navbar = () => {
@@ -88,7 +88,7 @@ const Navbar = () => {
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Nữ</Link>
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Sale Off</Link>
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>DiscoverYOU</Link>
-                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Đăng nhập</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/signin'>Đăng nhập</Link>
 
                     </div>
                 </div>
