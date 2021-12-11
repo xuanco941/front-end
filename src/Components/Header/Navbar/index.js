@@ -92,6 +92,7 @@ const Navbar = () => {
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Sale Off</Link>
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>DiscoverYOU</Link>
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/signin'>Đăng nhập</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/admin'>Đăng nhập quản trị viên</Link>
 
                     </div>
                 </div>

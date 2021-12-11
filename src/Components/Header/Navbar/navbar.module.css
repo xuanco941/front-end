@@ -217,6 +217,7 @@
         bottom: 0;
         left: 0;
     }
+    .item_box_menu_mb:hover{color: #f15e2c;}
 
     .menu_mb_close{
         font-size: 400%;
