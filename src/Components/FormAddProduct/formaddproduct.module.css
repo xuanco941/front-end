@@ -78,8 +78,8 @@
     font-weight: 600;
 }
 .box_radio, .box_text input[type='text'],input[type='number'] {
-    width: 100%;
-    max-width: 500px;
+    width: 90%;
+    max-width: 450px;
     height: 30px;
     margin-bottom: 20px;
     margin-top: 10px;
@@ -93,7 +93,41 @@
 .box_text input[type='text']:focus-visible,input[type='number']:focus-visible {
     outline: none;
 }
+.addProduct{
+    padding: 10px;
+    background-color: #555555;
+    color: white;
+    font-size: 19px;
+    max-width: 170px;
 
+}
+.addProduct:hover{
+    cursor: pointer;
+    color: #f15e2c;
+}
+.box_type{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.box_type>.title_input{
+    margin-bottom: 10px;
+}
+.box_type>select{
+    width: 25%;
+    max-width: 100px;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
+.box_type>select>option{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.input_amount{
+    width: 22% !important;
+    max-width: 92px !important;
+    height: 35px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}
 
 @media (max-width: 1200px){
     .formAddProduct{
@@ -104,5 +138,11 @@
     }
     .preview_img img{
         max-width: 90%;
+    }
+    .addProduct{
+        font-size: 14px;
+        padding:5px;
+        padding-left: 2px;
+        padding-right: 2px;
     }
 }

@@ -3,12 +3,33 @@ import { useEffect, useState } from 'react'
 import style from './formaddproduct.module.css'
 import icon_post_img from './img/icon_post_camera.jpg'
 
+const categorys = [
+    {
+        id: 1,
+        name: 'Giầy'
+    },
+    {
+        id: 2,
+        name: 'Áo'
+    },
+    {
+        id: 3,
+        name: 'Phụ kiện khác'
+    }
+]
+
+const allSize = ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46'];
 const FormAddProduct = () => {
     const [image, setImage] = useState([]);
     const [nameProduct, setNameProduct] = useState('');
     const [price, setPrice] = useState(0);
     const [sale, setSale] = useState(0);
     const [description, setDescription] = useState('');
+    const [color, setColor] = useState('#ffffff');
+    const [checkedCategory, setCheckedCategory] = useState('Giầy');
+
+    const [size, setSize] = useState('36');
+    const [amount, setAmount] = useState(1);
 
 
     const handleOnChangeInputImg = (e) => {
@@ -30,16 +51,50 @@ const FormAddProduct = () => {
     }, [image])
 
 
+    const formSubmit = (e) => {
 
-    console.log(image, nameProduct, price, sale, description);
+        if (nameProduct && description && price !== 0 && image.length > 0) {
+            const data = {
+                nameProduct: nameProduct,
+                price: price,
+                sale: sale,
+                color: color,
+                description: description,
+                category: checkedCategory,
+                type: {
+                    size: size,
+                    amount: amount
+                },
+                image: image
+            };
 
+            console.log(data);
+
+            fetch(process.env.REACT_APP_API_ENDPOINT + '/product/post-product', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(dataRes => console.log(dataRes))
+        }
+        else{
+            alert('Điền thiếu thông tin sản phẩm, vui lòng điền đủ');
+        }
+
+
+
+        e.preventDefault();
+    }
 
     return (
         <>
             <div className={style.container} >
 
 
-                <div className={style.formAddProduct}>
+                <form onSubmit={e => formSubmit(e)} className={style.formAddProduct} method='POST'>
                     <div className={style.box_img}>
                         <div className={style.input_img}>
                             <input onChange={handleOnChangeInputImg} id='id_img' name='image' placeholder="image" type='file' multiple />
@@ -57,17 +112,17 @@ const FormAddProduct = () => {
 
                         <div className={style.box_text}>
                             <span className={style.title_input}>Tên sản phẩm</span>
-                            <input value={nameProduct} id='nameProduct' onChange={e => setNameProduct(e.target.value)} name='nameProduct' placeholder="nameProduct" type='text' />
+                            <input value={nameProduct} autoComplete='off' id='nameProduct' onChange={e => setNameProduct(e.target.value)} name='nameProduct' placeholder="nameProduct" type='text' />
 
-                            <span className={style.title_input}>Phân loại (Giày: G001, Áo: A001, Phụ kiện khác: P001)</span>
+                            <span className={style.title_input}>Phân loại</span>
                             <div className={style.box_radio}>
-                                <input id='G001' name='category' placeholder="category" type='radio' />
-                                <label htmlFor='G001'>G001</label>
-                                <input id='A001' name='category' placeholder="category" type='radio' />
-                                <label htmlFor='A001'>A001</label>
 
-                                <input id='P001' name='category' placeholder="category" type='radio' />
-                                <label htmlFor='P001'>P001</label>
+                                {categorys.map(category => {
+                                    return <span key={category.id}>
+                                        <input checked={checkedCategory === category.name} onChange={e => setCheckedCategory(category.name)} placeholder={category.name} type='radio' id={`id${category.id}`} />
+                                        <label htmlFor={`id${category.id}`}>{category.name}</label>
+                                    </span>
+                                })}
                             </div>
 
 
@@ -80,26 +135,26 @@ const FormAddProduct = () => {
 
 
                             <span className={style.title_input}>Màu sắc</span>
-                            <input name='categoryColor' type='radio' />
-                            <input name='categoryColor' type='radio' />
+                            <input onChange={e => setColor(e.target.value)} value={color} type='color' />
 
                         </div>
 
                         <div className={style.box_type}>
-                            <select name='size' placeholder="size" type='number'>
-                                <option>
-
-                                </option>
+                            <span className={style.title_input}>Kích cỡ & Số lượng</span>
+                            <select onChange={e => { setSize(e.target.value) }} defaultValue={size} required>
+                                {allSize.map((e, index) => {
+                                    return <option key={index} disabled={e === size} value={e}>{e}</option>
+                                })}
                             </select>
-                            <input name='amount' placeholder="amount" type='number' />
+                            <input onChange={e => setAmount(e.target.value)} value={amount} className={style.input_amount} min='1' autoComplete='off' name='amount' placeholder="amount" type='number' />
                         </div>
 
-                        <button> Send</button>
+                        <button type='submit' className={style.addProduct}>Thêm sản phẩm</button>
 
                     </div>
 
 
-                </div>
+                </form>
 
             </div>
         </>

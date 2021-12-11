@@ -5,7 +5,6 @@ function Admin() {
 
     
 
-    console.log('renderrr');
     return (
         <>
             <div className={style.container}>
