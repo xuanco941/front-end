@@ -1,23 +1,42 @@
 import style from './SignIn.module.css'
 import clsx from 'clsx'
+import axios from 'axios'
+import { useState } from 'react'
 
 function Admin() {
 
-    
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
+    const formSubmit = (e) => {
+        e.preventDefault();
+        axios.post(process.env.REACT_APP_API_ENDPOINT+'/admin/signin', {
+            username: username.trim().toLowerCase(),
+            password: password.trim().toLowerCase()
+        })
+            .then(function (response) {
+                localStorage.setItem('accessTokenAdmin', response.data.data.accessTokenAdmin);
+                localStorage.setItem('refreshTokenAdmin', response.data.data.refreshTokenAdmin);
+                console.log('/admin');
+            })
+            .catch(function (error) {
+                alert('Sai tai khoan hoac mat khau')
+            });
+    }
 
     return (
         <>
             <div className={style.container}>
                 <div className={clsx(style.form, style.formSignIn)}>
-                    <form className={style.form_log} method='POST'>
-                        <input className={style.input} type='text' name='username' autoComplete='off' placeholder='Tài khoản quản trị viên' />
-                        <input className={style.input} type='text' name='password' autoComplete='off' placeholder='Mật khẩu' />
+                    <form onSubmit={formSubmit} className={style.form_log} method='POST' action={process.env.REACT_APP_API_ENDPOINT + '/admin/signin'}>
+                        <input value={username} onChange={e => setUsername(e.target.value)} className={style.input} type='text' name='username' autoComplete='off' placeholder='Tài khoản quản trị viên' />
+                        <input value={password} onChange={e => setPassword(e.target.value)} className={style.input} type='password' name='password' autoComplete='off' placeholder='Mật khẩu' />
                         <button className={style.button} type='submit'>Đăng nhập</button>
                     </form>
 
                 </div>
 
-               
+
 
             </div>
         </>
