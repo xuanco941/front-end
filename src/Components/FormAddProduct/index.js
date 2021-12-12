@@ -80,7 +80,7 @@ const FormAddProduct = () => {
                 .then(res => res.json())
                 .then(dataRes => console.log(dataRes))
         }
-        else{
+        else {
             alert('Điền thiếu thông tin sản phẩm, vui lòng điền đủ');
         }
 
