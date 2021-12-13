@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react'
 import style from './formaddproduct.module.css'
 import icon_post_img from './img/icon_post_camera.jpg'
+import Toast from '../Toast'
+import Loader from '../Loader'
 
 const categorys = [
     {
@@ -31,13 +33,30 @@ const FormAddProduct = () => {
     const [size, setSize] = useState('36');
     const [amount, setAmount] = useState(1);
 
+    function resetForm() {
+        setImage([]);
+        setNameProduct('');
+        setPrice(1000);
+        setSale(0);
+        setDescription('');
+        setColor('#ffffff');
+        setCheckedCategory('Giầy');
+        setSize('36');
+        setAmount(1);
+    }
 
+    const [notify, setNotify] = useState('none');
+    const [loader, setLoader] = useState('none');
+    const [message, setMessage] = useState('Thêm thành công');
+
+    function isFileImage(file) {
+        return file && file['type'].split('/')[0] === 'image';
+    }
     const handleOnChangeInputImg = (e) => {
-        const files = [...e.target.files];
+        const files = Array.from(e.target.files).filter(f => isFileImage(f) === true)
         files.forEach(element => {
             element.preview = URL.createObjectURL(element);
         });
-
         setImage(prev => [...prev, ...files]);
     }
 
@@ -54,38 +73,52 @@ const FormAddProduct = () => {
     const formSubmit = (e) => {
         e.preventDefault();
         if (nameProduct && description && price !== 0 && image.length > 0) {
-
+            setLoader('block');
             let formData = new FormData();
-            formData.append('nameProduct',nameProduct);
-            formData.append('price',price);
-            formData.append('sale',sale);
-            formData.append('color',color);
-            formData.append('description',description);
-            formData.append('category',checkedCategory);
+            formData.append('nameProduct', nameProduct);
+            formData.append('price', price);
+            formData.append('sale', sale);
+            formData.append('color', color);
+            formData.append('description', description);
+            formData.append('category', checkedCategory);
             formData.append('size', size);
             formData.append('amount', amount);
 
-            for(let i=0; i<image.length; i++){
+            for (let i = 0; i < image.length; i++) {
                 formData.append('image[]', image[i], image[i].name)
             }
 
             fetch(process.env.REACT_APP_API_ENDPOINT + '/product/post-product', {
                 method: 'POST',
-               
                 body: formData
             })
                 .then(res => res.json())
-                .then(dataRes => console.log(dataRes))
+                .then(dataRes => {
+                    if (dataRes) {
+                        resetForm();
+                        setLoader('none');
+                        setMessage('Thêm thành công');
+                        setNotify('block');
+                        setTimeout(() => {
+                            setNotify('none');
+                        }, 7000)
+                    }
+                })
         }
         else {
-            alert('Điền thiếu thông tin sản phẩm, vui lòng điền đủ');
+            setMessage('Chưa điền đủ thông tin');
+            setNotify('block');
+            setTimeout(() => {
+                setNotify('none');
+            }, 7000)
         }
     }
 
     return (
         <>
             <div className={style.container} >
-
+                <Loader loader={loader} />
+                <Toast notify={notify} message={message} />
 
                 <form onSubmit={e => formSubmit(e)} className={style.formAddProduct} method='POST'>
                     <div className={style.box_img}>

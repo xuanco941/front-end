@@ -1,6 +1,7 @@
 .container{
     width: 100vw;
     margin-top: 10px;
+    position: relative;
 }
 
 .formAddProduct{
@@ -50,7 +51,7 @@
     justify-content: center;
 }
 .preview_img img{
-    max-width: 40%;
+    max-width: 30%;
     margin-top: 10px;
     margin-left: 10px;
 }

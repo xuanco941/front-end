@@ -1,12 +1,12 @@
 import FormAddProduct from '../../Components/FormAddProduct/index'
 
 
-const ProductManagement = () => {
+const PostProduct = () => {
     return(
         <>
-            <FormAddProduct/>
+            <FormAddProduct />
         </>
     )
 }
 
-export default ProductManagement
+export default PostProduct
