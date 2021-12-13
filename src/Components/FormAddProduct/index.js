@@ -4,6 +4,7 @@ import style from './formaddproduct.module.css'
 import icon_post_img from './img/icon_post_camera.jpg'
 import Toast from '../Toast'
 import Loader from '../Loader'
+import MenuManagementAdmin from '../MenuManagementAdmin'
 
 const categorys = [
     {
@@ -116,10 +117,10 @@ const FormAddProduct = () => {
 
     return (
         <>
+            <MenuManagementAdmin/>
             <div className={style.container} >
                 <Loader loader={loader} />
                 <Toast notify={notify} message={message} />
-
                 <form onSubmit={e => formSubmit(e)} className={style.formAddProduct} method='POST'>
                     <div className={style.box_img}>
                         <div className={style.input_img}>

@@ -7,6 +7,7 @@ import SignIn from './Pages/SignIn'
 import Product from './Pages/Product/index'
 import Admin from './Pages/Admin'
 import PostProduct from './Pages/PostProduct'
+import AdminProduct from './Pages/AdminProduct'
 import './App.css'
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path='/product' element={<Product />} />
                 <Route path='/admin' element={<Admin />} />
                 <Route path='/admin/post-product' element={<PostProduct />} />
+                <Route path='/admin/admin-product' element={<AdminProduct/>}/>
             </Routes>
 
             <Footer />
