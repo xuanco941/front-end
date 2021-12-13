@@ -22,7 +22,7 @@ const allSize = ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46
 const FormAddProduct = () => {
     const [image, setImage] = useState([]);
     const [nameProduct, setNameProduct] = useState('');
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState(1000);
     const [sale, setSale] = useState(0);
     const [description, setDescription] = useState('');
     const [color, setColor] = useState('#ffffff');
@@ -52,30 +52,27 @@ const FormAddProduct = () => {
 
 
     const formSubmit = (e) => {
-
+        e.preventDefault();
         if (nameProduct && description && price !== 0 && image.length > 0) {
-            const data = {
-                nameProduct: nameProduct,
-                price: price,
-                sale: sale,
-                color: color,
-                description: description,
-                category: checkedCategory,
-                type: {
-                    size: size,
-                    amount: amount
-                },
-                image: image
-            };
 
-            console.log(data);
+            let formData = new FormData();
+            formData.append('nameProduct',nameProduct);
+            formData.append('price',price);
+            formData.append('sale',sale);
+            formData.append('color',color);
+            formData.append('description',description);
+            formData.append('category',checkedCategory);
+            formData.append('size', size);
+            formData.append('amount', amount);
+
+            for(let i=0; i<image.length; i++){
+                formData.append('image[]', image[i], image[i].name)
+            }
 
             fetch(process.env.REACT_APP_API_ENDPOINT + '/product/post-product', {
                 method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
+               
+                body: formData
             })
                 .then(res => res.json())
                 .then(dataRes => console.log(dataRes))
@@ -83,10 +80,6 @@ const FormAddProduct = () => {
         else {
             alert('Điền thiếu thông tin sản phẩm, vui lòng điền đủ');
         }
-
-
-
-        e.preventDefault();
     }
 
     return (
