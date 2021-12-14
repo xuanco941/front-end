@@ -11,6 +11,8 @@
     max-height: 110px;
     animation: toast 8s;
     display: none;
+    word-wrap: break-word;
+    word-break: keep-all;
 }
 @keyframes toast {
     0%{
