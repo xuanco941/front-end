@@ -8,6 +8,7 @@ import Product from './Pages/Product/index'
 import Admin from './Pages/Admin'
 import PostProduct from './Pages/PostProduct'
 import AdminProduct from './Pages/AdminProduct'
+import DetailProduct from './Pages/DetailProduct'
 import './App.css'
 
 const App = () => {
@@ -19,9 +20,11 @@ const App = () => {
                 <Route path='/' element={<Home />} />
                 <Route path='/signin' element={<SignIn />} />
                 <Route path='/product' element={<Product />} />
+                <Route path='/product/:id' element={<DetailProduct/>}/>
                 <Route path='/admin' element={<Admin />} />
                 <Route path='/admin/post-product' element={<PostProduct />} />
                 <Route path='/admin/admin-product' element={<AdminProduct/>}/>
+
             </Routes>
 
             <Footer />

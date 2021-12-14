@@ -1,0 +1,134 @@
+.container{
+    width: 65vw;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+}
+.box_img{
+    width: 50%;
+}
+.box_info{
+    width: 50%;
+}
+.box_img_item{
+    width: 100%;
+}
+.style_img_first{
+    width: 100%;
+}
+.style_img_next{
+    width: 24%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+}
+
+
+.box_info{
+    padding-right: 10px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+}
+.info_item{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.nameProduct{
+    font-size: 24px;
+    font-weight: 650;
+}
+.status{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+}
+.textWeight{
+    font-weight: 650;
+}
+.price{
+    color: #f15e2c;
+    font-size: 20px;
+    font-weight: 650;
+}
+.separate{
+    height: 5px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.color{
+    display: flex;
+}
+.item_color{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px;
+    border-style: solid;
+    padding: 4px;
+    border-color: #f15e2c;
+    margin-right: 15px;
+}
+.item_color:hover{
+    cursor: pointer;
+}
+
+.type{
+    display: flex;
+    justify-content: space-between;
+}
+.type_item{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+.text_type{
+    font-weight: 650;
+    font-size: 24px;
+}
+.select{
+    height: 35px;
+    margin-top: 10px;
+}
+.addMyCart{
+    background-color: #000;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+}
+.addMyCart:hover{
+    cursor: pointer;
+}
+.checkout{
+    display: block;
+    text-decoration: none;
+    background-color: #f15e2c;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+}
+
+.nameProduct{
+    margin-top: 0px;
+}
+
+@media (max-width:1200px){
+    .container{
+        width: 100vw;
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-wrap: wrap;
+    }
+    .box_img{
+        width: 100%;
+    }
+    .box_info{
+        margin-top: 40px;
+        width: 100%;
+        padding: 0;
+    }
+    .nameProduct{text-align: center;}
+}
