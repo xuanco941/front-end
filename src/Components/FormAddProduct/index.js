@@ -71,6 +71,10 @@ const FormAddProduct = () => {
     }, [image])
 
 
+    useEffect(() => {
+        return () => resetForm();
+    },[])
+
     const formSubmit = (e) => {
         e.preventDefault();
         if (nameProduct && description && price !== 0 && image.length > 0) {

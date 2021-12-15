@@ -17,10 +17,9 @@ function Admin() {
             .then(function (response) {
                 localStorage.setItem('accessTokenAdmin', response.data.data.accessTokenAdmin);
                 localStorage.setItem('refreshTokenAdmin', response.data.data.refreshTokenAdmin);
-                console.log('/admin');
             })
             .catch(function (error) {
-                alert('Sai tai khoan hoac mat khau')
+                alert('Sai tài khoản hoặc mật khẩu.')
             });
     }
 
