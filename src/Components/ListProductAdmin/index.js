@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import style from './listproductadmin.module.css'
+import getTokenAdmin from '../../Helper/getTokenAdmin';
+import { useNavigate } from 'react-router-dom';
 
 const ListProductAdmin = () => {
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         function getProduct() {
@@ -19,17 +22,28 @@ const ListProductAdmin = () => {
         }
     }, [])
 
+
     function handleButtonXoa(idProduct) {
-        setProducts(prev => prev.filter(elm => elm._id !== idProduct));
+        const [accessTokenAdmin] = getTokenAdmin();
         fetch(process.env.REACT_APP_API_ENDPOINT+'/product/delete-product',{
             method: 'DELETE',
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+accessTokenAdmin
             },
             body: JSON.stringify({
                 idProduct
             })
-        }).then(res => res.json()).then((data) => console.log(data));
+        }).then(res => res.json()).then((data) => {
+            if(data.status === 'error'){
+                alert(data.message);
+                navigate('/admin');
+            }
+            else{
+                setProducts(prev => prev.filter(elm => elm._id !== idProduct));
+            }
+        }
+        );
     }
 
     return <table className={style.table}>

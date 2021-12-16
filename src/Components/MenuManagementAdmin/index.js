@@ -1,15 +1,15 @@
 
-import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import img from './img/download.png'
 import style from './menufixed.module.css'
 
 const MenuManagementAdmin = () => {
-    const ref = useRef();
+    const navigate = useNavigate();
 
     const handleSignOut = () => {
         localStorage.removeItem('accessTokenAdmin');
         localStorage.removeItem('refreshTokenAdmin');
+        navigate('/admin');
     } 
     return (
         <div className={style.menu}>
@@ -17,7 +17,7 @@ const MenuManagementAdmin = () => {
             <div className={style.box_item}>
                 <Link to='/admin/post-product' className={style.item}>Thêm sản phẩm</Link>
                 <Link to='/admin/admin-product' className={style.item}>Xem sản phẩm</Link>
-                <Link onClick={handleSignOut} ref={ref} to='/admin' className={style.item}>Đăng xuất</Link>
+                <div onClick={handleSignOut} className={style.item}>Đăng xuất</div>
             </div>
         </div>
     )

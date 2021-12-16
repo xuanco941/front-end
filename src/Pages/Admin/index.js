@@ -2,11 +2,13 @@ import style from './SignIn.module.css'
 import clsx from 'clsx'
 import axios from 'axios'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Admin() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     const formSubmit = (e) => {
         e.preventDefault();
@@ -17,6 +19,7 @@ function Admin() {
             .then(function (response) {
                 localStorage.setItem('accessTokenAdmin', response.data.data.accessTokenAdmin);
                 localStorage.setItem('refreshTokenAdmin', response.data.data.refreshTokenAdmin);
+                navigate('/admin/post-product');
             })
             .catch(function (error) {
                 alert('Sai tài khoản hoặc mật khẩu.')

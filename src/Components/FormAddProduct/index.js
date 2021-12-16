@@ -5,6 +5,8 @@ import icon_post_img from './img/icon_post_camera.jpg'
 import Toast from '../Toast'
 import Loader from '../Loader'
 import MenuManagementAdmin from '../MenuManagementAdmin'
+import getTokenAdmin from '../../Helper/getTokenAdmin'
+import { useNavigate } from 'react-router-dom'
 
 const categorys = [
     {
@@ -23,6 +25,8 @@ const categorys = [
 
 const allSize = ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46'];
 const FormAddProduct = () => {
+    const navigate = useNavigate();
+
     const [image, setImage] = useState([]);
     const [nameProduct, setNameProduct] = useState('');
     const [price, setPrice] = useState(1000);
@@ -76,6 +80,7 @@ const FormAddProduct = () => {
     },[])
 
     const formSubmit = (e) => {
+        const [accessTokenAdmin] = getTokenAdmin();
         e.preventDefault();
         if (nameProduct && description && price !== 0 && image.length > 0) {
             setLoader('block');
@@ -95,19 +100,26 @@ const FormAddProduct = () => {
 
             fetch(process.env.REACT_APP_API_ENDPOINT + '/product/post-product', {
                 method: 'POST',
+                headers:{
+                    "Authorization": "Bearer "+accessTokenAdmin
+                },
                 body: formData
             })
                 .then(res => res.json())
                 .then(dataRes => {
-                    if (dataRes) {
+                    if(dataRes.status === 'success') {
                         resetForm();
-                        setLoader('none');
                         setMessage('Thêm thành công');
                         setNotify('block');
                         setTimeout(() => {
                             setNotify('none');
                         }, 7000)
                     }
+                    else{
+                        alert(dataRes.message);
+                        navigate('/admin');
+                    }
+                    setLoader('none');
                 })
         }
         else {

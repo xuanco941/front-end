@@ -1,13 +1,14 @@
-const initState = {
-    todos: [],
-    todoInput: ''
+const authAdminState = {
+    accessTokenAdmin = '',
+    refreshTokenAdmin = ''
+
 }
 
-function reducer (state, action){
+function reducerAuthAdmin (authAdminState, action){
     switch(action.type){
         //..
     }
 }
 
-export {initState}
-export default reducer
+export {authAdminState}
+export default reducerAuthAdmin
