@@ -37,6 +37,7 @@ const ListProductAdmin = () => {
         }).then(res => res.json()).then((data) => {
             if(data.status === 'error'){
                 alert(data.message);
+                localStorage.removeItem('accessTokenAdmin');
                 navigate('/admin');
             }
             else{

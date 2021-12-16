@@ -1,15 +1,14 @@
 import style from './SignIn.module.css'
 import clsx from 'clsx'
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 function Admin() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const navigate = useNavigate()
-
+    const navigate = useNavigate();
     const formSubmit = (e) => {
         e.preventDefault();
         axios.post(process.env.REACT_APP_API_ENDPOINT+'/admin/signin', {
@@ -22,7 +21,7 @@ function Admin() {
                 navigate('/admin/post-product');
             })
             .catch(function (error) {
-                alert('Sai tài khoản hoặc mật khẩu.')
+                alert('Sai tài khoản hoặc mật khẩu.');
             });
     }
 

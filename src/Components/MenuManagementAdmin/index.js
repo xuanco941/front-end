@@ -10,6 +10,7 @@ const MenuManagementAdmin = () => {
         localStorage.removeItem('accessTokenAdmin');
         localStorage.removeItem('refreshTokenAdmin');
         navigate('/admin');
+        
     } 
     return (
         <div className={style.menu}>

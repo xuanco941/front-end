@@ -116,7 +116,8 @@ const FormAddProduct = () => {
                         }, 7000)
                     }
                     else{
-                        alert(dataRes.message);
+                        alert('Token het han, moi ban dang nhap lai');
+                        localStorage.removeItem('accessTokenAdmin');
                         navigate('/admin');
                     }
                     setLoader('none');
