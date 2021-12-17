@@ -18,19 +18,20 @@ const Product = () => {
         .then(data => setProducts(data.data.product))
     },[])
 
-    // const hashPrice = (arr) => {
-    //     const newArr = [];
-    //     arr.forEach((e,i) => {
-    //         if ((i+1)%3===0) {
-    //             newArr.push('.');
-    //             newArr.push(e);
-    //         } 
-    //         else{
-    //             newArr.push(e);
-    //         }
-    //     });
-    //     return newArr;
-    // }
+    const hashPrice = (text) => {
+        let arr = text.split('').reverse();
+        const newArr = [];
+        arr.forEach((e,i) => {
+            if ((i)%3===0 && i !== 0) {
+                newArr.push('.');
+                newArr.push(e);
+            } 
+            else{
+                newArr.push(e);
+            }
+        });
+        return newArr.reverse().join('');
+    }
 
     useEffect(() => {
         const box_img = Array.from(document.querySelectorAll('.boximg'));
@@ -86,7 +87,7 @@ const Product = () => {
                             <h4>{elm.nameProduct}</h4>
                         </Link>
                         <p>{elm.category}</p>
-                        <p className={style.price}>{ elm.price +' VNĐ'}</p>
+                        <p className={style.price}>{ hashPrice(elm.price.toString()) +' VNĐ'}</p>
                     </div>
                     )
                 }
