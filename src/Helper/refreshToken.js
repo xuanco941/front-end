@@ -1,6 +1,6 @@
 
-const refreshTokenAdmin = () => {
-    fetch(process.env.REACT_APP_API_ENDPOINT+'/admin/refresh-token',{
+const refreshTokenAdmin = async () => {
+    await fetch(process.env.REACT_APP_API_ENDPOINT+'/admin/refresh-token',{
         method: "POST",
         headers:{
             "Content-Type": "application/json"
@@ -13,12 +13,14 @@ const refreshTokenAdmin = () => {
     .then(data => {
         if(data.status === 'success'){
             localStorage.setItem('accessTokenAdmin', data.data.accessTokenAdmin);
+            console.log('true');
             return true;
         }
         else{
+            console.log('false');
             return false;
         }
-    })
+    });
 }
 
 const refreshTokenUser = () => {

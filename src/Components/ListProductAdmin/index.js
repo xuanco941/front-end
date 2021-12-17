@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import style from './listproductadmin.module.css'
-import getTokenAdmin from '../../Helper/getTokenAdmin';
 import { useNavigate } from 'react-router-dom';
 
 const ListProductAdmin = () => {
@@ -23,24 +22,48 @@ const ListProductAdmin = () => {
     }, [])
 
 
-    function handleButtonXoa(idProduct) {
-        const [accessTokenAdmin] = getTokenAdmin();
-        fetch(process.env.REACT_APP_API_ENDPOINT+'/product/delete-product',{
+    async function handleButtonXoa(idProduct) {
+
+        await fetch(process.env.REACT_APP_API_ENDPOINT + '/admin/refresh-token', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                refreshTokenAdmin: localStorage.getItem('refreshTokenAdmin')
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    localStorage.setItem('accessTokenAdmin', data.data.accessTokenAdmin);
+                }
+                else {
+                    alert(data.message);
+                    localStorage.removeItem('accessTokenAdmin');
+                    localStorage.removeItem('refreshTokenAdmin');
+                    navigate('/admin');
+                }
+            });
+
+
+
+        await fetch(process.env.REACT_APP_API_ENDPOINT + '/product/delete-product', {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer "+accessTokenAdmin
+                "Authorization": "Bearer " + localStorage.getItem('accessTokenAdmin')
             },
             body: JSON.stringify({
                 idProduct
             })
-        }).then(res => res.json()).then((data) => {
-            if(data.status === 'error'){
+        }).then(res => res.json()).then(async (data) => {
+            if (data.status === 'error') {
                 alert(data.message);
                 localStorage.removeItem('accessTokenAdmin');
                 navigate('/admin');
             }
-            else{
+            else {
                 setProducts(prev => prev.filter(elm => elm._id !== idProduct));
             }
         }
@@ -84,7 +107,7 @@ const ListProductAdmin = () => {
                     <td>{e.sale}</td>
                     <td>{e.description}</td>
                     <td>{e.status === true ? 'Mới' : 'Bình thường'}</td>
-                    <td><button onClick={ elm => handleButtonXoa(e._id)}>Xóa</button>
+                    <td><button onClick={elm => handleButtonXoa(e._id)}>Xóa</button>
                     </td>
                 </tr>
             </tbody>

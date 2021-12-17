@@ -5,7 +5,6 @@ import icon_post_img from './img/icon_post_camera.jpg'
 import Toast from '../Toast'
 import Loader from '../Loader'
 import MenuManagementAdmin from '../MenuManagementAdmin'
-import getTokenAdmin from '../../Helper/getTokenAdmin'
 import { useNavigate } from 'react-router-dom'
 
 const categorys = [
@@ -77,10 +76,9 @@ const FormAddProduct = () => {
 
     useEffect(() => {
         return () => resetForm();
-    },[])
+    }, [])
 
-    const formSubmit = (e) => {
-        const [accessTokenAdmin] = getTokenAdmin();
+    const formSubmit = async (e) => {
         e.preventDefault();
         if (nameProduct && description && price !== 0 && image.length > 0) {
             setLoader('block');
@@ -98,16 +96,16 @@ const FormAddProduct = () => {
                 formData.append('image[]', image[i], image[i].name)
             }
 
-            fetch(process.env.REACT_APP_API_ENDPOINT + '/product/post-product', {
+            await fetch(process.env.REACT_APP_API_ENDPOINT + '/product/post-product', {
                 method: 'POST',
-                headers:{
-                    "Authorization": "Bearer "+accessTokenAdmin
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem('accessTokenAdmin')
                 },
                 body: formData
             })
                 .then(res => res.json())
-                .then(dataRes => {
-                    if(dataRes.status === 'success') {
+                .then( async (dataRes) => {
+                    if (dataRes.status === 'success') {
                         resetForm();
                         setMessage('Thêm thành công');
                         setNotify('block');
@@ -115,10 +113,52 @@ const FormAddProduct = () => {
                             setNotify('none');
                         }, 7000)
                     }
-                    else{
-                        alert('Token het han, moi ban dang nhap lai');
-                        localStorage.removeItem('accessTokenAdmin');
-                        navigate('/admin');
+                    else {
+                        await fetch(process.env.REACT_APP_API_ENDPOINT+'/admin/refresh-token',{
+                            method: "POST",
+                            headers:{
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                refreshTokenAdmin: localStorage.getItem('refreshTokenAdmin')
+                            })
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                            if(data.status === 'success'){
+                                localStorage.setItem('accessTokenAdmin', data.data.accessTokenAdmin);
+                                console.log('true');
+                            }
+                            else{
+                                alert('Refresh Token gặp lỗi');
+                                localStorage.removeItem('accessTokenAdmin');
+                                navigate('/admin');                            }
+                        });
+                        await fetch(process.env.REACT_APP_API_ENDPOINT + '/product/post-product', {
+                            method: 'POST',
+                            headers: {
+                                "Authorization": "Bearer " + localStorage.getItem('accessTokenAdmin')
+                            },
+                            body: formData
+                        })
+                            .then(res => res.json())
+                            .then(dataRes => {
+                                if (dataRes.status === 'success') {
+                                    resetForm();
+                                    setMessage('Thêm thành công');
+                                    setNotify('block');
+                                    setTimeout(() => {
+                                        setNotify('none');
+                                    }, 7000)
+                                }
+                                else {
+                                    alert('Token het han, moi ban dang nhap lai');
+                                    localStorage.removeItem('accessTokenAdmin');
+                                    navigate('/admin');
+                                }
+                            }
+                            )
+
                     }
                     setLoader('none');
                 })
@@ -134,7 +174,7 @@ const FormAddProduct = () => {
 
     return (
         <>
-            <MenuManagementAdmin/>
+            <MenuManagementAdmin />
             <div className={style.container} >
                 <Loader loader={loader} />
                 <Toast notify={notify} message={message} />
