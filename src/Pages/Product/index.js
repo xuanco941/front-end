@@ -1,15 +1,36 @@
 import clsx from 'clsx'
 import { Link } from 'react-router-dom'
 
+import unname from './unnamed.png'
 import img from './img_title.jpg'
 import style from './product.module.css'
-import img_test from './1.jpg'
-import img_test2 from './2.jpg'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 
 
 const Product = () => {
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios.get(process.env.REACT_APP_API_ENDPOINT+'/product')
+        .then(data => setProducts(data.data.product))
+    },[])
+
+    // const hashPrice = (arr) => {
+    //     const newArr = [];
+    //     arr.forEach((e,i) => {
+    //         if ((i+1)%3===0) {
+    //             newArr.push('.');
+    //             newArr.push(e);
+    //         } 
+    //         else{
+    //             newArr.push(e);
+    //         }
+    //     });
+    //     return newArr;
+    // }
 
     useEffect(() => {
         const box_img = Array.from(document.querySelectorAll('.boximg'));
@@ -42,37 +63,36 @@ const Product = () => {
             })
         }
 
-    }, [])
-
+    }, [products])
 
 
     return (
-        <>
             <div className={style.container}>
                 <div className={clsx(style.box, style.box1)}>
                     <img className={style.img_title} src={img} alt='img title' />
                 </div>
                 <div className={clsx(style.box, style.box2)}>
 
-
-                    <div className={style.item}>
-                        <Link className={clsx(style.box_img, 'boximg')} to='/product/1'>
-                            <img className={clsx(style.img)} src={img_test} alt='img product' />
-                            <img className={clsx(style.img, style.hide)} src={img_test2} alt='img product' />
+                {
+                    products.map((elm) => 
+                    <div className={style.item} key={elm._id}>
+                        <Link className={clsx(style.box_img, 'boximg')} to={`/product/${elm._id}`}>
+                            <img className={clsx(style.img)} src={elm.image[0] || unname} alt='img product' />
+                            <img className={clsx(style.img, style.hide)} src={elm.image[1] || elm.image[0] || unname} alt='img product' />
                             <span className={style.buynow}>Mua Ngay</span>
                         </Link>
-                        <span className={style.status}>New Arrival</span>
-                        <Link to='/product/1'>
-                            <h4>Basas Bumper Gum EXT NE - High Top weeeeeeeeeeeeeeee</h4>
+                        <span className={style.status}>{elm.status && 'New Arrival'}</span>
+                        <Link to={`/product/${elm._id}`}>
+                            <h4>{elm.nameProduct}</h4>
                         </Link>
-                        <p>Offwhite/Gum</p>
-                        <p className={style.price}>1.190.000 VND</p>
+                        <p>{elm.category}</p>
+                        <p className={style.price}>{ elm.price +' VNĐ'}</p>
                     </div>
-
+                    )
+                }
 
                 </div>
             </div>
-        </>
     )
 }
 
