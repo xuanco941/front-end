@@ -31,21 +31,21 @@ const Navbar = () => {
                     </div>
 
                     <div className={clsx(style.col2_item)}>
-                        <Link className={clsx(style.col2_link)} to='/product/?gender=man'>
+                        <Link className={clsx(style.col2_link)} to='/product'>
                             NAM
                             <span className={clsx(style.caret)}></span>
                         </Link>
                     </div>
 
                     <div className={clsx(style.col2_item)}>
-                        <Link className={clsx(style.col2_link)} to='/product/?gender=woman'>
+                        <Link className={clsx(style.col2_link)} to='/product'>
                             NỮ
                             <span className={clsx(style.caret)}></span>
                         </Link>
                     </div>
 
                     <div className={clsx(style.col2_item)}>
-                        <Link className={clsx(style.col2_link)} to='/product/sale'>
+                        <Link className={clsx(style.col2_link)} to='/product'>
                             SALE OFF
                         </Link>
                     </div>
@@ -92,7 +92,7 @@ const Navbar = () => {
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>Sale Off</Link>
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/product'>DiscoverYOU</Link>
                         <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/signin'>Đăng nhập</Link>
-                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/admin'>Đăng nhập quản trị viên</Link>
+                        <Link onClick={()=>{setShowMenu(false)}} className={style.item_box_menu_mb} to='/admin'>Truy cập vùng quản trị</Link>
 
                     </div>
                 </div>
