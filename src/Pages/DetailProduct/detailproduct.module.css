@@ -1,7 +1,7 @@
 .container{
     width: 65vw;
-    margin: auto;
     display: flex;
+    margin: auto;
     flex-direction: row;
     margin-top: 20px;
     flex-wrap: nowrap;
@@ -53,7 +53,7 @@
     font-weight: 650;
 }
 .separate{
-    height: 5px;
+    height: 2px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.15);
 }
@@ -118,8 +118,6 @@
 @media (max-width:1200px){
     .container{
         width: 100vw;
-        padding-left: 10px;
-        padding-right: 10px;
         flex-wrap: wrap;
     }
     .box_img{

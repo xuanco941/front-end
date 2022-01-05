@@ -127,7 +127,6 @@ const FormAddProduct = () => {
                         .then(data => {
                             if(data.status === 'success'){
                                 localStorage.setItem('accessTokenAdmin', data.data.accessTokenAdmin);
-                                console.log('true');
                             }
                             else{
                                 alert('Refresh Token gặp lỗi');
